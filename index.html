@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Samuel Wiggans | Final-year Cyber Security Student & Service Desk Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Final-year Computing (Networks, Cyber Security & Forensics) student and Service Desk Engineer at Impact Computing, building a career in cyber and network security." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1120;
+      --card-bg: #0f172a;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.75);
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --nav-height: 72px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, var(--bg) 45%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* NAVBAR */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.7));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #bbf7d0, var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #052e16;
+      box-shadow: 0 16px 30px rgba(34, 197, 94, 0.55);
+    }
+
+    .brand-text-main {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      font-size: 0.98rem;
+    }
+
+    .brand-text-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      transition: all 0.16s ease-out;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: #f9fafb;
+      border-color: rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding-top: 2.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .hero-text-eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 35rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .meta-pill {
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--text-muted);
+    }
+
+    .meta-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.8rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      transition: all 0.18s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #4ade80);
+      color: #052e16;
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 50px rgba(34, 197, 94, 0.85);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .btn-icon {
+      font-size: 1rem;
+      margin-left: 0.1rem;
+    }
+
+    .hero-highlight {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.1rem;
+    }
+
+    .hero-highlight span {
+      padding: 0.12rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-card {
+      position: relative;
+      background: radial-gradient(circle at top, rgba(94, 234, 212, 0.2), transparent 55%), var(--card-bg);
+      border-radius: 26px;
+      padding: 1.6rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .hero-card-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-tag {
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+    }
+
+    .hero-card-body {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-card-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-card-meta-item {
+      padding: 0.65rem 0.7rem;
+      border-radius: 0.9rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-card-label {
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-card-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .hero-card-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.72rem;
+      margin-top: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-orbit {
+      position: absolute;
+      inset: -30%;
+      border-radius: inherit;
+      border: 1px dashed rgba(148, 163, 184, 0.2);
+      transform: rotate(-4deg);
+      pointer-events: none;
+    }
+
+    /* SECTION LAYOUT */
+    .section {
+      padding: 2.2rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 1.6rem;
+      flex-wrap: wrap;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      letter-spacing: 0.03em;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 30rem;
+    }
+
+    .section-pill {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 0.9rem 1rem;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.65);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .skill-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    .skill-badge {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    .skill-body {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.25rem;
+    }
+
+    .tag {
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    /* EXPERIENCE */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .exp-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.6);
+    }
+
+    .exp-card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-role {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .exp-company {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .exp-company-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+      margin-top: 0.1rem;
+    }
+
+    .exp-dates {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .exp-body {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin: 0.35rem 0 0.5rem;
+    }
+
+    .exp-points {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.2rem 0 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .exp-points li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-points li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+    }
+
+    .exp-label-pill {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(22, 101, 52, 0.25);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .exp-summary {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.92);
+      padding: 1rem 1rem;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+    }
+
+    .exp-summary strong {
+      color: #e5e7eb;
+    }
+
+    /* EDUCATION / HIGHLIGHTS */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #e5e7eb;
+    }
+
+    .edu-list,
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.4rem 0 0;
+    }
+
+    .edu-list li,
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .edu-list li::before,
+    .bullet-list li::before {
+      content: "";
+      position: absolute;
+      left: 0.24rem;
+      top: 0.55rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .badge-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.1);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      font-size: 0.72rem;
+      margin-left: 0.4rem;
+    }
+
+    /* CONTACT */
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 1.5rem;
+      align-items: center;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.25), transparent 50%), var(--card-bg);
+      border-radius: 24px;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-main-title {
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      font-size: 0.84rem;
+    }
+
+    .contact-item-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding-bottom: 0.1rem;
+      border-bottom: 1px solid transparent;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: #bbf7d0;
+    }
+
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    .contact-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-size: 0.84rem;
+    }
+
+    .footer {
+      padding-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      margin-top: 1.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .experience-grid,
+      .two-col-grid,
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 0 1.1rem 2.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-items {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-card-meta {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <div class="brand-mark">SW</div>
+        <div>
+          <div class="brand-text-main">Samuel Wiggans</div>
+          <div class="brand-text-sub">Cyber Security &amp; Networks</div>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-ghost nav-cta" href="#contact">
+        Contact
+        <span class="btn-icon">→</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top" class="page">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="hero-text-eyebrow">Cyber Security · Networks · Digital Forensics</p>
+        <h1 id="hero-title" class="hero-title">
+          Hi, I am Samuel&nbsp;Wiggans —<br />
+          <span>final-year cyber security, networks and digital forensics student</span> and Service Desk Engineer.
+        </h1>
+        <p class="hero-tagline">
+          Final-year BSc Computing (Networks, Cyber Security and Forensics) student at Edge Hill University with hands-on experience providing first line support at a managed service provider. I have developed practical expertise in threat response, Microsoft 365 administration and secure system deployment alongside my academic studies.
+        </p>
+        <div class="hero-meta" aria-label="Key information">
+          <div class="meta-pill">Based in Lytham St Annes, North West UK</div>
+          <div class="meta-pill">Service Desk Engineer at Impact Computing (May 2025 &ndash; present)</div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">
+            Get in touch
+            <span class="btn-icon">✉️</span>
+          </a>
+          <a class="btn btn-ghost"
+             href="Samuel Wiggans CV 2025.pdf"
+             download
+             target="_blank"
+             rel="noreferrer">
+            Download CV
+            <span class="btn-icon">⬇️</span>
+          </a>
+        </div>
+        <div class="hero-highlight">
+          <span>Currently:</span>
+          <span>Building a career in cyber security while completing my degree.</span>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Profile snapshot">
+        <div class="hero-card-header">
+          <div>
+            <div class="hero-card-title">Profile snapshot</div>
+            <div class="hero-card-subtitle">What I bring to a cyber role</div>
+          </div>
+          <div class="hero-card-tag">Early-career talent</div>
+        </div>
+        <p class="hero-card-body">
+          I combine academic knowledge in networks, cyber security and digital forensics with real-world experience as a Service Desk Engineer at a managed service provider. I provide technical and cybersecurity support to clients, including threat investigation, Microsoft 365 security tasks, device setups, encryption and infrastructure diagnostics.
+        </p>
+        <div class="hero-card-meta">
+          <div class="hero-card-meta-item">
+            <div class="hero-card-label">Core strengths</div>
+            <div class="hero-card-value">Attention to detail · Time management</div>
+          </div>
+          <div class="hero-card-meta-item">
+            <div class="hero-card-label">Security focus</div>
+            <div class="hero-card-value">Network security · Digital forensics</div>
+          </div>
+        </div>
+        <div class="hero-card-pill">
+          <span>⚙️ Hands-on with tools like Wireshark, Autopsy, Nmap &amp; Metasploit</span>
+        </div>
+        <div class="hero-card-orbit"></div>
+      </aside>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2 id="about-title" class="section-title">Who I am</h2>
+        </div>
+        <p class="section-subtitle">
+          A motivated technology enthusiast with a strong foundation in cyber security, networking and digital forensics, backed by industry work experience and ongoing self-development.
+        </p>
+      </div>
+      <div class="two-col-grid">
+        <article class="card">
+          <h3 class="card-title">Personal statement</h3>
+          <p>
+            Final-year BSc Computing (Networks, Cyber Security and Forensics) student at Edge Hill University with hands-on experience providing first and second line support at a managed service provider. I have developed practical expertise in threat response, Microsoft 365 administration and secure system deployment alongside my academic studies. I want to progress into a graduate role in cyber and network security from 2026.
+          </p>
+          <p>
+            Alongside my studies I actively seek out additional learning opportunities, from courses and certificates to events. I enjoy understanding how things work and using that knowledge to solve real world problems.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">How I work</h3>
+          <ul class="bullet-list">
+            <li>Organised and disciplined with my time, balancing university, self-study and work experience.</li>
+            <li>Comfortable communicating with customers, colleagues and technical teams in a clear, friendly way.</li>
+            <li>Curious and proactive — I like to dig into logs, tools and documentation to understand root causes.</li>
+            <li>Team-oriented, with experience collaborating on projects in both technical and business settings.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Skills</p>
+          <h2 id="skills-title" class="section-title">Key attributes &amp; technical skills</h2>
+        </div>
+        <span class="section-pill">Blend of technical, analytical &amp; people skills</span>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <div class="skill-badge">Core</div>
+          <h3 class="skill-title">Organisation &amp; time management</h3>
+          <p class="skill-body">
+            Used to managing deadlines across university, work and self-study while maintaining high standards.
+          </p>
+          <div class="skill-tags">
+            <span class="tag">Planning</span>
+            <span class="tag">Prioritisation</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-badge">Core</div>
+          <h3 class="skill-title">Attention to detail</h3>
+          <p class="skill-body">
+            Careful and methodical when working with configurations, logs, and customer information in a fast-paced MSP environment.
+          </p>
+          <div class="skill-tags">
+            <span class="tag">Accuracy</span>
+            <span class="tag">Quality focused</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-badge">Tools</div>
+          <h3 class="skill-title">Networking &amp; analysis tools</h3>
+          <p class="skill-body">
+            Experience using Cisco Packet Tracer for simulations and tools such as Wireshark, Autopsy and Nmap for analysis and digital forensics.
+          </p>
+          <div class="skill-tags">
+            <span class="tag">Packet Tracer</span>
+            <span class="tag">Wireshark</span>
+            <span class="tag">Autopsy</span>
+            <span class="tag">Nmap</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-badge">Security</div>
+          <h3 class="skill-title">Network &amp; system security</h3>
+          <p class="skill-body">
+            Understanding of firewalls, IDS/IPS and how they contribute to defence-in-depth network security, supported by real-world threat response experience.
+          </p>
+          <div class="skill-tags">
+            <span class="tag">Firewalls</span>
+            <span class="tag">IDS / IPS</span>
+            <span class="tag">Threat awareness</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-badge">Security</div>
+          <h3 class="skill-title">Penetration testing concepts</h3>
+          <p class="skill-body">
+            Hands-on practice using Linux, Metasploit and virtual machines to probe and test system vulnerabilities.
+          </p>
+          <div class="skill-tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Metasploit</span>
+            <span class="tag">Labs &amp; VMs</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-badge">Technical</div>
+          <h3 class="skill-title">Programming &amp; scripting</h3>
+          <p class="skill-body">
+            Familiar with Python and PowerShell for basic automation and security-related scripting tasks.
+          </p>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">PowerShell</span>
+            <span class="tag">Automation</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Experience</p>
+          <h2 id="experience-title" class="section-title">Work experience</h2>
+        </div>
+        <p class="section-subtitle">
+          A mix of office, technical and customer-facing roles that have built my confidence, communication skills and understanding of how technology supports real businesses.
+        </p>
+      </div>
+      <div class="experience-grid">
+        <div class="experience-list">
+          <article class="exp-card">
+            <header class="exp-card-header">
+              <div>
+                <div class="exp-role">Service Desk Engineer</div>
+                <div class="exp-company-row">
+                  <div class="exp-company">Impact Computing – IT Support &amp; Solutions</div>
+                  <span class="exp-label-pill">Managed service provider</span>
+                </div>
+              </div>
+              <div class="exp-dates">May 2025 – present</div>
+            </header>
+            <p class="exp-body">
+              Part-time during university (full-time over summer). First line engineer at a managed service provider, providing technical and cybersecurity support to clients across various sectors.
+            </p>
+            <ul class="exp-points">
+              <li>Investigate antivirus and Microsoft 365 security alerts, including phishing, malware and adversary-in-the-middle activity.</li>
+              <li>Assist with threat containment through actions such as revoking sessions, enforcing multi-factor authentication and reviewing audit logs.</li>
+              <li>Set up and secure devices using tools such as Intune, Autopilot, BitLocker and FileVault, alongside custom USB builds where appropriate.</li>
+              <li>Support users with day-to-day issues while explaining technical steps clearly to non-technical audiences.</li>
+            </ul>
+          </article>
+
+          <article class="exp-card">
+            <header class="exp-card-header">
+              <div>
+                <div class="exp-role">Data Processor (Summer Contract)</div>
+                <div class="exp-company-row">
+                  <div class="exp-company">Sustainable Energy First</div>
+                  <span class="exp-label-pill">Energy &amp; data</span>
+                </div>
+              </div>
+              <div class="exp-dates">Jul 2024 – Sep 2024</div>
+            </header>
+            <p class="exp-body">
+              Full-time role at a renewable energy company, working with data and customer information in a fast-paced environment.
+            </p>
+            <ul class="exp-points">
+              <li>Handled data storage, batching and email archiving with accuracy and consistency.</li>
+              <li>Resolved customer billing queries through investigation and problem-solving.</li>
+              <li>Identified unknown clients and routed queries to the correct departments.</li>
+              <li>Collaborated with a large team to manage shared workloads.</li>
+            </ul>
+          </article>
+
+          <article class="exp-card">
+            <header class="exp-card-header">
+              <div>
+                <div class="exp-role">Customer Service Assistant</div>
+                <div class="exp-company-row">
+                  <div class="exp-company">Marks &amp; Spencer Food, St Annes</div>
+                  <span class="exp-label-pill">Customer service</span>
+                </div>
+              </div>
+              <div class="exp-dates">Apr 2023 – Dec 2023</div>
+            </header>
+            <p class="exp-body">
+              Part-time role focused on delivering a positive experience for customers in a busy retail environment.
+            </p>
+            <ul class="exp-points">
+              <li>Managed tills and handled payments accurately.</li>
+              <li>Engaged with customers and provided informed product support.</li>
+              <li>Supported stock rotation and store presentation.</li>
+            </ul>
+          </article>
+
+          <article class="exp-card">
+            <header class="exp-card-header">
+              <div>
+                <div class="exp-role">Work Experience – Service Desk &amp; Cyber</div>
+                <div class="exp-company-row">
+                  <div class="exp-company">Impact Computing</div>
+                  <span class="exp-label-pill">IT &amp; cyber exposure</span>
+                </div>
+              </div>
+              <div class="exp-dates">Feb 2023 &amp; Apr 2023</div>
+            </header>
+            <p class="exp-body">
+              On-site experience with a Managed Service Provider, supporting IT and cyber security teams.
+            </p>
+            <ul class="exp-points">
+              <li>Assisted service desk engineers with real client tickets and technical issues.</li>
+              <li>Observed how cyber incidents are investigated and resolved in practice.</li>
+              <li>Worked alongside multiple team members across different projects.</li>
+            </ul>
+          </article>
+        </div>
+        <aside class="exp-summary">
+          <p>
+            Beyond these roles, I have also completed structured work experience and learning in cyber security and networking:
+          </p>
+          <ul class="bullet-list">
+            <li>Fujitsu work experience week (Jul 2022) covering cyber security, smart cities and quantum computing.</li>
+            <li>UCLan Cyber Security Learning (Jun 2022) focusing on digital investigation, insider threats and counter-attacks.</li>
+            <li>Cisco work experience (Oct 2021) across IT, engineering and networking — including a project competition where my team won.</li>
+          </ul>
+          <p style="margin-top:0.7rem;">
+            These experiences have given me early exposure to professional environments and confirmed my interest in working in cyber security.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="education" class="section" aria-labelledby="education-title">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Education</p>
+          <h2 id="education-title" class="section-title">Academic background</h2>
+        </div>
+        <span class="section-pill">On track for a technology-focused career</span>
+      </div>
+      <div class="two-col-grid">
+        <article class="card">
+          <h3 class="card-title">Edge Hill University</h3>
+          <p>
+            <strong>BSc (Hons) Computing (Networks, Cyber Security and Forensics)</strong><br />
+            September 2023 – June 2026 (expected). Degree with modules centred around networking, security and digital forensics.
+          </p>
+          <ul class="edu-list">
+            <li>Developing understanding of network design, protocols and security.</li>
+            <li>Building knowledge of cyber threats, defences and investigation techniques.</li>
+            <li>Working with industry-relevant tools and technologies.</li>
+          </ul>
+          <p style="margin-top:0.6rem;">
+            I am aiming to progress into a graduate-level cyber security or network security role from 2026.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">College &amp; GCSEs</h3>
+          <p>
+            <strong>BTEC Level 3 Extended Diploma in IT</strong> – Grade DDD
+          </p>
+          <ul class="edu-list">
+            <li>English Language – Grade 4</li>
+            <li>English Literature – Grade 5</li>
+            <li>Maths – Grade 5</li>
+            <li>Combined Science – Grade 4/4</li>
+            <li>Business Studies – Grade 4</li>
+            <li>History – Grade 4</li>
+            <li>Computer Science – Grade 4</li>
+            <li>Creative Digital Media BTEC – Pass</li>
+          </ul>
+          <p style="margin-top:0.6rem;">
+            This combination has given me a strong grounding in both technical and communication skills.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="highlights" class="section" aria-labelledby="highlights-title">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Highlights</p>
+          <h2 id="highlights-title" class="section-title">Projects, achievements &amp; interests</h2>
+        </div>
+        <span class="section-pill">What I do beyond formal study</span>
+      </div>
+      <div class="two-col-grid">
+        <article class="card">
+          <h3 class="card-title">Technical &amp; personal achievements</h3>
+          <ul class="bullet-list">
+            <li>Built two custom gaming desktops from scratch using savings from eBay sales.</li>
+            <li>Gained extensive experience comparing and selecting CPUs, GPUs, motherboards and other hardware.</li>
+            <li>Developed skills in system troubleshooting, upgrades and cooling optimisation.</li>
+            <li>Enjoyed designing and styling the setups, continuously improving performance and aesthetics.</li>
+          </ul>
+          <p style="margin-top:0.6rem;">
+            Offered a Degree Apprenticeship at BAE in Data Analysis (August 2023). After careful consideration I chose to pursue my passion for cyber and network security, which led me to enrol at Edge Hill University.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Activities &amp; ongoing development</h3>
+          <ul class="bullet-list">
+            <li>Grew a TikTok gaming channel to more than 25,000 followers and over 1.5 million likes, demonstrating creativity, branding and digital content management.</li>
+            <li>Gym, football and gaming.</li>
+            <li>Volunteer for the RSPCA, caring for animals.</li>
+            <li>Complete cyber security courses from platforms such as Cisco, Security Blue Team and TryHackMe.</li>
+          </ul>
+          <p style="margin-top:0.6rem;">
+            I am always looking for new ways to grow my skills and stay engaged with the wider cyber security community.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-title" class="section-title">Contact</h2>
+        </div>
+        <p class="section-subtitle">
+          I am open to conversations with people working in cyber security, networking, digital forensics or related areas.</p>
+      </div>
+      <div class="contact-card">
+        <div>
+          <h3 class="contact-main-title">Interested in connecting?</h3>
+          <p class="contact-text">
+            If you want to connect about cybersecurity, networking or digital forensics, feel free to reach out using the details here.</p>
+          <div class="contact-items">
+            <div>
+              <div class="contact-item-label">Email</div>
+              <a class="contact-link" href="mailto:samwiggans@gmail.com">
+                samwiggans@gmail.com
+                <span class="btn-icon">↗</span>
+              </a>
+            </div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <a class="contact-link" href="tel:+447904211253">
+                +44 (0)7904 211 253
+              </a>
+              <div class="contact-note">Happy to receive a text or call first.</div>
+            </div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <p>Lytham St Annes · North West England</p>
+            </div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <a class="contact-link" href="https://www.linkedin.com/in/sam-wiggans-206013255/" target="_blank" rel="noreferrer">
+                View my LinkedIn profile
+                <span class="btn-icon">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-cta">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Samuel Wiggans · Portfolio
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
